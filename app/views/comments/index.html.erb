@@ -1,0 +1,12 @@
+<h1>Comments</h1>
+
+<% @comments.each do |comment| %>
+    Commenter: <%= comment.commenter %>
+    <p>
+    Write comment: <%= comment.body %>
+    <p>
+    To post:  <a href="/posts/<%= comment.post_id %>"><%= comment.post.title %></a>
+    <p>
+    ------------------------------------------------------------------
+    <p>
+<% end %>

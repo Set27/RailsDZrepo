@@ -1,0 +1,10 @@
+<h2>Posts</h2>
+<% @posts.each do |post| %>
+    User: <a href="/users/<%= post.user.id %>"><%= post.user.login %></a>
+    Write post with title: <%= post.title %>
+    <p>
+    Body of title is: <%= post.body %>
+    <p>
+    ------------------------------------------------------------------
+    <p>
+<% end %>

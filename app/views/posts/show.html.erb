@@ -1,0 +1,11 @@
+<h1> <%= @post.title %> </h2>
+<align="justify"><%= @post.body %>
+<p>
+<h2>Comments</h2>
+<% @post.comments.each do |comment| %>
+ <%= comment.commenter %>: <%= comment.body %>
+ <% end %>
+<p>
+<div style = "text-align: right">
+<b>Author:</b> <%= @post.user.login %>
+</div>
