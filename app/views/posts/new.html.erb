@@ -1,0 +1,22 @@
+<h1>Create new post</h2>
+
+<%= form_with model: @post do |form| %>
+    <div>
+        <%= form.label :post_id, "User" %><br>
+        <%= form.select :user_id, User.pluck(:login,:id) %>
+    </div>
+    <div>
+        <%= form.label :body %><br>
+        <%= form.text_field :body %>
+    </div>
+
+     <div>
+        <%= form.label :title %><br>
+        <%= form.text_field :title %>
+    </div>
+
+    <div>
+        <%= form.submit value = "Save" %>
+    </div>
+
+<% end %>

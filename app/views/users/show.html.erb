@@ -7,4 +7,14 @@
     <% end %>
 </ul>
 
+<%= link_to "New post", new_post_path %>
 <h1>"<%= @user.login %>" comments</h1>
+
+<ul>
+    <% @user.comments.each do |comment| %>
+    <h3><b><li><%= comment.post.title %></li></b></h3  >
+    <%= comment.body %>
+    <% end %>
+</ul>
+
+<%= link_to "New comment", new_comment_path %>

@@ -3,7 +3,7 @@
 <p>
 <h2>Comments</h2>
 <% @post.comments.each do |comment| %>
- <%= comment.commenter %>: <%= comment.body %>
+ <%= comment.user.login %>: <%= comment.body %>
  <% end %>
 <p>
 <div style = "text-align: right">
