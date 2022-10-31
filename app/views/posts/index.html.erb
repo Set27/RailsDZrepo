@@ -1,7 +1,7 @@
 <h2>Posts</h2>
 <% @posts.each do |post| %>
-    User: <a href="/users/<%= post.user.id %>"><%= post.user.login %></a>
-    Write post with title: <%= post.title %>
+    User: <%= link_to post.user.login, user_path(post.user) %>
+    Write post with title: <%= link_to post.title, post %>
     <p>
     Body of title is: <%= post.body %>
     <p>

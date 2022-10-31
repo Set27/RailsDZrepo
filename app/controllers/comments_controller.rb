@@ -3,11 +3,27 @@ class CommentsController < ApplicationController
         @comments = Comment.all
     end
 
-    def find
-        @userTitle = User.find(params[:user_id]).login
+    def show
+        @comment = Comment.find(params[:id])
     end
 
-    def comment_params
-        params.require(:comment).permit(:body,:post_id, :user_id)
+    def new
+        @comment = Comment.new
     end
+
+    def create
+        @comment = Comment.new(comment_params)
+
+        if @comment.save
+            redirect_to post_url(@comment.post_id)
+        else
+            render :new, status: unprocessable_entity
+        end
+        
+    end
+
+    private
+        def comment_params
+            params.require(:comment).permit(:body, :post_id, :user_id)
+        end
 end

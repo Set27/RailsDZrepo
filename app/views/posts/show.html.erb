@@ -3,9 +3,11 @@
 <p>
 <h2>Comments</h2>
 <% @post.comments.each do |comment| %>
- <%= comment.user.login %>: <%= comment.body %>
+ <%= link_to comment.user.login, user_path(@post.user) %>: <%= comment.body %><br>
  <% end %>
+ <hr>
+ <%= link_to "New comment", new_comment_path %>
 <p>
 <div style = "text-align: right">
-<b>Author:</b> <%= @post.user.login %>
+<b>Author:</b> <%= link_to @post.user.login, user_path(@post.user) %>
 </div>
