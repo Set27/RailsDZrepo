@@ -1,10 +1,25 @@
 <h2>Posts</h2>
-<% @posts.each do |post| %>
-    User: <%= link_to post.user.login, user_path(post.user) %>
-    Write post with title: <%= link_to post.title, post %>
-    <p>
-    Body of title is: <%= post.body %>
-    <p>
-    ------------------------------------------------------------------
-    <p>
-<% end %>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col">#</th>
+            <th class="col">Author</th>
+            <th class="col">Post title</th>
+            <th class="col">Post body</th>
+        </tr>
+    </thead>
+    <% @posts.each do |post| %>
+        <tr>
+            <th><%= post.id %></th>
+            <th>
+                <%= link_to post.user.login, user_path(post.user), class: "link-info" %>
+            </th>
+            <th>
+                <%= link_to post.title, post %>
+            </th>
+            <th>
+                <%= post.body %>
+            </th>
+        </tr>
+        <%end%>
+</table>

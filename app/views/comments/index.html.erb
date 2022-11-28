@@ -1,12 +1,27 @@
 <h1>Comments</h1>
-
-<% @comments.each do |comment| %>
-    Commenter: <a href="/users/<%= comment.user.id %>"><%= comment.user.login %></a>
-    <p>
-    Write comment: <%= comment.body %>
-    <p>
-    To post:  <a href="/posts/<%= comment.post_id %>"><%= comment.post.title %></a>
-    <p>
-    ------------------------------------------------------------------
-    <p>
-<% end %>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col">#</th>
+            <th class="col">Author of comment</th>
+            <th class="col">Post title</th>
+            <th class="col">Comment body</th>
+        </tr>
+    </thead>
+    <% @comments.each do |comment| %>
+        <tr>
+            <th>
+                <%= comment.id %>
+            </th>
+            <th>
+                <%= link_to comment.user.login, user_path(comment.user.id), class: "link-info" %>
+            </th>
+            <th>
+                <%= link_to comment.post.title, post_path(comment.post_id) %>
+            </th>
+            <th>
+                <%= comment.body %>
+            </th>
+        </tr>
+        <%end%>
+</table>
