@@ -1,8 +1,12 @@
 <div class="container">
     <div class="head">
-        <div> <h1>"<%= @user.login %>" posts</h1></div>
-       <div> <p>Subscribers</p>
-        <p><button class="btn btn-primary">Subscribe</button> </p></div>
+        <div>
+            <h1>"<%= @user.login %>" posts</h1>
+        </div>
+        <div>
+            <p>Subscribers: <%= @user.subscribes.ids.count %> </p>
+            <p><%= link_to "Subscribe", subscribe_path(@user.id), class: "btn btn-primary" %></p>
+        </div>
     </div>
     <ul class="list-group">
         <% @user.posts.each do |post| %>
@@ -14,7 +18,7 @@
             </li>
             <% end %>
     </ul>
-    
+
     <%= link_to "New post" , new_post_path , class: "btn btn-primary mb-3 mt-2" %>
         <h1>"<%= @user.login %>" comments</h1>
 
@@ -30,5 +34,4 @@
         </ul>
 
         <%= link_to "New comment" , new_comment_path, class: "btn btn-primary mt-2" %>
-</div>
 </div>
