@@ -1,30 +1,34 @@
-<h1>"<%= @user.login %>" posts</h1>
-
 <div class="container">
-<ul class="list-group">
-    <% @user.posts.each do |post| %>
-        <li class="list-group-item list-group-item-primary">
-            <%= post.title %>
-        </li>
-        <li class="list-group-item">
-            <%= post.body %>
-        </li>
-        <% end %>
-</ul>
-
-<%= link_to "New post" , new_post_path , class: "btn btn-primary mb-3 mt-2" %>
-    <h1>"<%= @user.login %>" comments</h1>
-
+    <div class="head">
+        <div> <h1>"<%= @user.login %>" posts</h1></div>
+       <div> <p>Subscribers</p>
+        <p><button class="btn btn-primary">Subscribe</button> </p></div>
+    </div>
     <ul class="list-group">
-        <% @user.comments.each do |comment| %>
+        <% @user.posts.each do |post| %>
             <li class="list-group-item list-group-item-primary">
-                <%= comment.post.title %>
+                <%= post.title %>
             </li>
             <li class="list-group-item">
-            <%= comment.body %>
-                <% end %>
+                <%= post.body %>
             </li>
+            <% end %>
     </ul>
+    
+    <%= link_to "New post" , new_post_path , class: "btn btn-primary mb-3 mt-2" %>
+        <h1>"<%= @user.login %>" comments</h1>
 
-    <%= link_to "New comment" , new_comment_path, class: "btn btn-primary mt-2" %>
+        <ul class="list-group">
+            <% @user.comments.each do |comment| %>
+                <li class="list-group-item list-group-item-primary">
+                    <%= comment.post.title %>
+                </li>
+                <li class="list-group-item">
+                    <%= comment.body %>
+                        <% end %>
+                </li>
+        </ul>
+
+        <%= link_to "New comment" , new_comment_path, class: "btn btn-primary mt-2" %>
+</div>
 </div>

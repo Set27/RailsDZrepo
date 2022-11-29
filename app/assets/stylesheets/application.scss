@@ -23,3 +23,16 @@
     }
      
  }
+
+ .head{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+ }
+ .head>div{
+   display: flex;
+   flex-direction: row;
+   column-gap: 20px;
+   align-items: center;
+ }
