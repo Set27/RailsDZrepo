@@ -1,23 +1,24 @@
- @import "bootstrap";
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
 
- .container-fluid{
-    .main{
+.container-fluid{
+  .main{
     padding-left: 0px !important;
     padding-right: 0px !important;
     padding-top: 10px;
-    }
-     
- }
+  }
 
- .head{
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: space-between;
- }
- .head>div{
-   display: flex;
-   flex-direction: row;
-   column-gap: 20px;
-   align-items: center;
- }
+}
+
+.head{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.head>div{
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  align-items: center;
+}
