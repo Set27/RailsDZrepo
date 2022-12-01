@@ -1,0 +1,25 @@
+<h2>All subsribers</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col">#</th>
+            <th class="col">User</th>
+            <th class="col">Subscribe to</th>
+            <th class="col">Time</th>
+        </tr>
+    </thead>
+    <% @subs.each do |s| %>
+        <tr>
+            <th><%= s.id %></th>
+            <th>
+                <%= User.find(s.subscribe_to).login %>
+            </th>
+            <th>
+                <%= s.user.login %>
+            </th>
+            <th>
+                <%= s.created_at %>
+            </th>
+        </tr>
+        <%end%>
+</table>
