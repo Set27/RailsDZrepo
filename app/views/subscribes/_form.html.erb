@@ -3,3 +3,13 @@
     <%= f.input :subscribe_to, as: :select, collection: User.pluck(:login,:id)  %>   
     <%= f.button :submit, class: "btn btn-primary mt-2" %>
 <%end%>
+
+
+<% if flash[:error] %>
+<div class = "col float-start">
+ <div class="alert alert-info mt-2">
+    <%= flash[:error] %>
+ </div>
+</div>
+ <%end%>
+ 

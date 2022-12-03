@@ -12,9 +12,10 @@ class SubscribesController < ApplicationController
         
         if @sub.subscribe_to == @sub.user_id
             flash[:error] = "user cannot follow themself"
+            redirect_to :new_subscribe
         else
             if @sub.save
-                # redirect_to subscribes_path
+                redirect_to subscribes_path
             else
                 render :new, status: :unprocessable_entity
             end
