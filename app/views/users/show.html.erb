@@ -5,7 +5,7 @@
         </div>
         <div>
             <p>Subscribers: <%= @user.subscribes.ids.count %> </p>
-            <p><%= link_to "Subscribe", subscribe_path(@user.id), class: "btn btn-primary" %></p>
+            <p><%= link_to "Subscribe", new_subscribe_path, class: "btn btn-primary" %></p>
         </div>
     </div>
     <ul class="list-group">
