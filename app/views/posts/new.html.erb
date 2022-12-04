@@ -1,6 +1,16 @@
-<h1>Create new post</h1>
+<h2>Create new post</h2>
 
-<%= form_with model: @post do |form| %>
+<%= simple_form_for @post do |f| %>
+    <%= f.association :user, label_method: :login, value_method: :id %>
+    <%= f.input :title, as: :text  %>
+    <%= f.input :body, as: :text %>
+    <%= f.input :tag_ids, as: :select, collection: Tag.order(:name), label_method: :name, 
+        input_html: {multiple: true} %>
+    <%= f.button :submit, class: "btn btn-primary mt-2" %>
+
+<% end %>
+
+<!-- <%= form_with model: @post do |form| %>
     <div>
         <%= form.label :post_id, "User" %><br>
         <%= form.select :user_id, User.pluck(:login,:id) %>
@@ -14,10 +24,11 @@
     <div>
         <%= form.label :body %><br>
         <%= form.text_field :body %>
+
     </div>
 
     <div>
         <%= form.submit value = "Save" %>
     </div>
 
-<% end %>
+<% end %> -->

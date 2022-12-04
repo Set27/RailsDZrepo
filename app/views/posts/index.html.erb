@@ -6,6 +6,7 @@
             <th class="col">Author</th>
             <th class="col">Post title</th>
             <th class="col">Post body</th>
+            <th class="col">Tags</th>
         </tr>
     </thead>
     <% @posts.each do |post| %>
@@ -19,6 +20,9 @@
             </th>
             <th>
                 <%= post.body %>
+            </th>
+            <th>
+                <%= raw post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
             </th>
         </tr>
         <%end%>
