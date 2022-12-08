@@ -9,12 +9,13 @@ class Post < ApplicationRecord
         Tag.find_by!(name: name).post
     end
 
-    # def self.tag_counts
-    #     Tag.select('tags.*, count(taggings.tag_id) as count).joins(:taggings).group(taggings.tag_id')
+
+   # def self.tag_counts
+    #    Tag.select('tags.*, count(taggings.tag_id) as count).joins(:taggings).group(taggings.tag_id')
     # end
 
     def tag_list
-        tags.map(&:name).join(',')
+        tags.map(&:name).join(',') #change to Pluck
     end
 
     def tag_list=(names)
