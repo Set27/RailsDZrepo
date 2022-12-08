@@ -22,12 +22,8 @@
                 <%= post.body %>
             </th>
             <th>
-                <% post.tags.each do |tag| %>
-    <%= link_to tag.name, tag_path(tag) %>
-    <% unless tag == post.tags.last %>
-      ,
-    <% end %>
-  <% end %>
+                <!-- #не понимаю как link_to прописать -->
+                <%= raw post.tags.map { |t| link_to t.name, tag_path(t) }.join(', ') %>   
             </th>
         </tr>
         <%end%>
