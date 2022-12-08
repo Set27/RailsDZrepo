@@ -1,0 +1,21 @@
+<h2><%= @tag.name %></h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col">#</th>
+            <th class="col">Author</th>
+            <th class="col">Post title</th>
+        </tr>
+    </thead>
+    <% @tag.posts.each do |t| %>
+        <tr>
+            <th><%= t.id %></th>
+            <th>
+                <%= link_to t.user.login, user_path(t.user), class: "link-info" %>
+            </th>
+            <th>
+                <%= link_to t.title, t %>
+            </th>
+        </tr>
+        <%end%>
+</table>

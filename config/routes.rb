@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :comments
   resources :subscribes
-  
+  get '/tags/:id', to: "tags#show"  
 
   get 'tags/tag', to: 'posts#index', as: :tag
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
