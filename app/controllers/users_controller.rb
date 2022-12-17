@@ -22,6 +22,10 @@ class UsersController < ApplicationController
         
     end
 
+    def selfcreate
+        @user = User.find(1)
+    end
+
     private
         def user_params
             params.require(:user).permit(:login, :password)

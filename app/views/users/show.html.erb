@@ -5,6 +5,9 @@
         </div>
         <div>
             <p>Subscribers: <%= @user.subscribes.ids.count %> </p>
+            <p>Subscribers names: <% @user.subscribes.each do |s| %>
+            <%= User.find(s.subscribe_to).login %>
+            <%end%>
             <p><%= link_to "Subscribe", new_subscribe_path, class: "btn btn-primary" %></p>
         </div>
     </div>
