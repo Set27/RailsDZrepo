@@ -10,7 +10,7 @@ class SubscribesController < ApplicationController
     def create
         @sub = Subscribe.new(sub_params)
         
-        if @sub.subscribe_to == @sub.user_id
+        if @sub.user_id == @sub.sub_to_id
             flash[:error] = "user cannot follow themself"
             redirect_to :new_subscribe
         else
@@ -24,6 +24,6 @@ class SubscribesController < ApplicationController
 
     private
         def sub_params
-            params.require(:subscribe).permit(:user_id,:subscribe_to)
+            params.require(:subscribe).permit(:user_id,:sub_to_id)
         end
 end

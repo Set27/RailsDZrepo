@@ -12,7 +12,7 @@
         <tr>
             <th><%= s.id %></th>
             <th>
-                <%= User.find(s.subscribe_to).login %>
+                <%= User.find(s.sub_to_id).login %>
             </th>
             <th>
                 <%= s.user.login %>
