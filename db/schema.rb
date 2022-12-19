@@ -80,4 +80,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_19_165807) do
   add_foreign_key "posts", "users"
   add_foreign_key "subscribes", "users"
   add_foreign_key "taggings", "tags"
+  add_foreign_key "taggings", "users"
 end

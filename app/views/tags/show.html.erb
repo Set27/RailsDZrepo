@@ -7,15 +7,15 @@
             <th class="col">Post title</th>
         </tr>
     </thead>
-    <% @tag.posts.each do |t| %>
+     <% @tag.taggings.each do |t| %>
         <tr>
-            <th><%= t.id %></th>
-            <th>
-                <%= link_to t.user.login, user_path(t.user), class: "link-info" %>
-            </th>
-            <th>
-                <%= link_to t.title, t %>
-            </th>
+            <td><%= t.id %></td>
+            <td>
+                <%# <%= link_to t.user.login, user_path(t.user), class: "link-info" %> %>
+            </td>
+            <td>
+                <%# <%= link_to t.title, t %> %>
+            </td>
         </tr>
-        <%end%>
+        <%end %>
 </table>

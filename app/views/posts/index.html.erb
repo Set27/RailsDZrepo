@@ -22,8 +22,7 @@
                 <%= post.body %>
             </th>
             <th>
-                <!-- #не понимаю как link_to прописать -->
-                <%= raw post.tags.map { |t| link_to t.name, tag_path(t) }.join(', ') %>   
+                <%= post.tag_list %>   
             </th>
         </tr>
         <%end%>

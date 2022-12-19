@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :subscribes
   resources :tags, only: [:show]
 
-  # get 'tags/tag', to: 'posts#index', as: :tag
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
