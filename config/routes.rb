@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "users#index"
-
-  resources :users
+  
+  devise_for :users
   resources :posts
   resources :comments
   resources :subscribes
