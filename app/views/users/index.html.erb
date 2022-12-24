@@ -1,0 +1,25 @@
+<h2>Users list</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col">#</th>
+            <th class="col">Email</th>
+            <th class="col">Post count</th>
+            <th class="col">Comment count</th>
+        </tr>
+    </thead>
+    <% @users.each do |u| %>
+        <tr>
+            <th><%= u.id %></th>
+            <th>
+                <%= u.email %>
+            </th>
+            <th>
+                <%= u.posts.count %>
+            </th>
+            <th>
+                <%= u.comments.count %>
+            </th>
+        </tr>
+        <%end%>
+</table>

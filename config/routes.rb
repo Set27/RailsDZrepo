@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  root "users#index"
+  root "posts#index"
   
   devise_for :users
+  get "/users", to: "users#index"
   resources :posts
   resources :comments
   resources :subscribes
