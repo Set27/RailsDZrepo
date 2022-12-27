@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "posts#index"
   
   devise_for :users
-  get "/users", to: "users#index"
+  resources :users, only: [:show, :index]
   resources :posts
   resources :comments
   resources :subscribes
