@@ -1,8 +1,14 @@
 <h2 div class="d-inline-flex">Profile <%= @user.email %></h2>
 <div class="d-inline-flex ">
+    <% @user.subscribe_ids %>
     <% if current_user == @user %>
-            <%= link_to "Log out" , destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-danger" %>
-        <% else %>
-            <%= link_to "Subscribe" , destroy_user_session_path, class: "btn btn-primary d-inline-flex" %>
+        <%= link_to "Log out" , destroy_user_session_path, data: { "turbo-method": :delete }, class: "btn btn-danger" %>
+    <% else %>
+        <% if Subscribe.find_by(user: current_user, sub_to: @user).present? %>
+            <%= link_to "Unsubscribe" , unsubscribe_user_path(@user), data: {"turbo-method": :post}, class: "btn btn-secondary d-inline-flex" %>
+        <% else %> 
+            <%= link_to "Subscribe" , subscribe_user_path(@user), data: {"turbo-method": :post}, class: "btn btn-primary d-inline-flex" %>
+        <% end %>
     <% end %>
+
 </div>

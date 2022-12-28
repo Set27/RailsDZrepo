@@ -7,3 +7,6 @@ application.debug = false
 window.Stimulus   = application
 
 export { application }
+
+
+$(document).on('turbolinks:load', function (){ alert("turbolinks on load event works") });

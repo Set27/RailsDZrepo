@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   root "posts#index"
   
   devise_for :users
-  resources :users, only: [:show, :index]
+  resources :users do 
+    member do
+      post :subscribe
+      post :unsubscribe
+    end
+  end
   resources :posts
   resources :comments
   resources :subscribes
