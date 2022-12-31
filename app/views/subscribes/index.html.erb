@@ -12,10 +12,10 @@
         <tr>
             <th><%= s.id %></th>
             <th>
-                <%= User.find(s.sub_to_id).login %>
+                <%= User.find(s.sub_to_id).email %>
             </th>
             <th>
-                <%= s.user.login %>
+                <%= s.user.email %>
             </th>
             <th>
                 <%= s.created_at %>

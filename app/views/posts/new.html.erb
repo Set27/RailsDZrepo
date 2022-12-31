@@ -1,7 +1,6 @@
 <h2>Create new post</h2>
 
 <%= simple_form_for @post do |f| %>
-    <%= f.association :user, label_method: :login, value_method: :id %>
     <%= f.input :title, as: :text  %>
     <%= f.input :body, as: :text %>
     <%= f.input :tag_ids, as: :select, collection: Tag.order(:name), label_method: :name, 
@@ -9,26 +8,3 @@
     <%= f.button :submit, class: "btn btn-primary mt-2" %>
 
 <% end %>
-
-<!-- <%= form_with model: @post do |form| %>
-    <div>
-        <%= form.label :post_id, "User" %><br>
-        <%= form.select :user_id, User.pluck(:login,:id) %>
-    </div>
-    
-     <div>
-        <%= form.label :title %><br>
-        <%= form.text_field :title %>
-    </div>
-
-    <div>
-        <%= form.label :body %><br>
-        <%= form.text_field :body %>
-
-    </div>
-
-    <div>
-        <%= form.submit value = "Save" %>
-    </div>
-
-<% end %> -->

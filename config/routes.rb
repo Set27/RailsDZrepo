@@ -10,6 +10,12 @@ Rails.application.routes.draw do
   end
   resources :posts
   resources :comments
+  # resources :posts do
+  #   resources :comments
+  # end
+  # not work
+
+
   resources :subscribes
   resources :tags, only: [:show]
 

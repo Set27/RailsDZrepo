@@ -1,7 +1,8 @@
 <h2>Create new comment</h2>
+<%= debug(params)%>
 <div class="col-sm-2">
-  <%= simple_form_for @comment do |form| %> <%= form.association :user,
-  label_method: :login, value_method: :id %> <%= form.input :body, as: :text %>
-  <%= form.association :post, label_method: :title, value_method: :id %> <%=
-  form.button :submit, class: "btn btn-primary mt-2" %> <% end %>
+  <%= simple_form_for @comment do |form| %> 
+  <%= form.input :body, as: :text %>
+  <%= form.button :submit, class: "btn btn-primary mt-2" %> 
+  <% end %>
 </div>
