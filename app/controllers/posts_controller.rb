@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+    before_action :find_post, only: [:show, :edit, :update, :destroy]
     def index
         params[:tag] ? @posts = Post.tagged_with[params[:tag]] : @posts = Post.all
     end
@@ -25,4 +26,8 @@ class PostsController < ApplicationController
         def post_params
             params.require(:post).permit(:user_id, :title, :body, :content, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
         end
+
+        def find_post
+            @post = Post.find(params[:id])
+          end
 end

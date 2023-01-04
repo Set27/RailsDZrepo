@@ -1,0 +1,15 @@
+<strong><%= comment.user.email %></strong> 
+<li>
+
+    <%= comment.body %>
+
+    <%= form_for [comment, Comment.new] do |f| %>
+        <%= f.text_area :body, placeholder: "Add a Reply" %><br/>
+        <%= f.submit "Reply"  %>
+        <% end %>
+
+    <ul>
+        <%= render comment.comments %>
+    </ul>
+
+  </li>

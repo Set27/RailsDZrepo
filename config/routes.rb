@@ -8,14 +8,13 @@ Rails.application.routes.draw do
       post :unsubscribe
     end
   end
-  resources :posts
-  resources :comments
-  # resources :posts do
-  #   resources :comments
-  # end
-  # not work
+  resources :posts do
+    resources :comments
+  end
 
-
+  resources :comments do
+    resources :comments
+  end
   resources :subscribes
   resources :tags, only: [:show]
 

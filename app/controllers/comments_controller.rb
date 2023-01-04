@@ -1,9 +1,11 @@
 class CommentsController < ApplicationController
+    before_action :find_commentable
+
     def index
         @comments = Comment.all
     end
 
-    def show
+def show
         @comment = Comment.find(params[:id])
     end
 
@@ -12,18 +14,24 @@ class CommentsController < ApplicationController
     end
 
     def create
-        @comment = Comment.new(comment_params.merge(user_id: current_user.id, post_id: params[:id]))
+        @comment = @commentable.comments.new(comment_params.merge(user_id: current_user.id))
+        debugger
         # @comment.post_id = params[:post_id]
         if @comment.save
-            redirect_to post_url(@comment.post_id)
+            redirect_back fallback_location: post_path(@commentable)
         else
-            render :new, status: :unprocessable_entity
+            # render :new, status: :unprocessable_entity
         end
         
     end
 
     private
         def comment_params
-            params.require(:comment).permit(:body, :post_id, :user_id)
+            params.require(:comment).permit(:body, :user_id, :post_id)
         end
+
+        def find_commentable
+            @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
+            @commentable = Post.find_by_id(params[:post_id]) if params[:post_id]
+          end
 end
