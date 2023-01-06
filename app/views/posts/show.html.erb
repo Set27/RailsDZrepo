@@ -5,14 +5,14 @@
     <%= @post.body %>
         <p>
         <h2>Comments</h2>
-        <%= form_for [@article, Comment.new] do |f| %>
-            <%= f.text_area :body, placeholder: "Add a comment" %><br/>
-            <%= f.submit "Add Comment" %>
-        <% end %>
+            <%= simple_form_for [@post, Comment.new] do |f| %>
+                <%= f.input :body, as: :text, placeholder:"type here for post comment", wrapper_html:  {class: 'col-2'}, label: false %>
+                <%= f.button :submit, class: "btn btn-primary mt-1" %>
+            <% end %>
         <%= render @post.comments %>
             <hr>
-                <p>
-                <div style="text-align: right">
-                    <b>Author:</b>
-                    <%= link_to @post.user.email, user_path(@post.user) %>
-                </div>
+            <p>
+            <div style="text-align: right">
+                <b>Author:</b>
+                <%= link_to @post.user.email, user_path(@post.user) %>
+            </div>

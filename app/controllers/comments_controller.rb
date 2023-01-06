@@ -15,7 +15,7 @@ def show
 
     def create
         @comment = @commentable.comments.new(comment_params.merge(user_id: current_user.id))
-        debugger
+        # debugger
         # @comment.post_id = params[:post_id]
         if @comment.save
             redirect_back fallback_location: post_path(@commentable)

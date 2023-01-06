@@ -1,15 +1,10 @@
-<strong><%= comment.user.email %></strong> 
-<li>
-
-    <%= comment.body %>
-
-    <%= form_for [comment, Comment.new] do |f| %>
-        <%= f.text_area :body, placeholder: "Add a Reply" %><br/>
-        <%= f.submit "Reply"  %>
+<strong>Author email: <%= comment.user.email %></strong> 
+    <br>
+    Post body: <%= comment.body %>
+    <%= simple_form_for [comment, Comment.new] do |f| %>
+        <%= f.input :body, as: :text, placeholder:"type here for nested comment", wrapper_html:  {class: 'col-2'}, label: false %>
+        <%= f.button :submit, class: "btn btn-primary mt-1" %>
         <% end %>
-
     <ul>
         <%= render comment.comments %>
     </ul>
-
-  </li>
