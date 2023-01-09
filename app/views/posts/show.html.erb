@@ -1,15 +1,8 @@
-<div class ="d-inline-flex">
 <h2>
     <%= @post.title %>
 </h2>
-    <% if current_user == @post.user %>
-        <% if @post.draft %>
-            <%= link_to "publish", publish_post_path(@post), data: {"turbo-method": :post}, class: "btn btn-primary mt-1" %>
-        <% end %>
-    <% end %>
-</div>
-<br> <%= @post.body %>
 <align="justify">
+    <%= @post.body %>
         <p>
         <h2>Comments</h2>
             <%= simple_form_for [@post, Comment.new] do |f| %>

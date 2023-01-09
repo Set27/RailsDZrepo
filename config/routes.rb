@@ -10,9 +10,6 @@ Rails.application.routes.draw do
   end
   resources :posts do
     resources :comments
-    member do
-      post :publish
-    end
   end
 
   resources :comments do
