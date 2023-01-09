@@ -19,7 +19,12 @@ class PostsController < ApplicationController
         else
             render :new, status: :unprocessable_entity
         end
-        
+    end
+
+    def publish
+        @post = Post.find(params[:id])
+        @post.update(draft: false)
+        redirect_back fallback_location: post_path(@post)
     end
 
     private
