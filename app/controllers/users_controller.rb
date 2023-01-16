@@ -25,7 +25,10 @@ class UsersController < ApplicationController
 
     private
 
-
+    def authorize_user
+        authorize!(@user || User.new)
+    end
+    
     def user_params
         params.require(:id).permit(:email)
     end

@@ -17,33 +17,27 @@
             <th class="col">#</th>
             <th class="col">Post title</th>
             <th class="col">Post body</th>
-            <% if current_user == @user %>
-                <th class="col">Draft?</th>
-            <% end %>
+            <th class="col">Post time</th>
             <th class="col">Tags</th>
         </tr>
     </thead>
     <% @user.posts.each do |post| %>
-        <% if post.draft == true and current_user != @user %>
-        <% else %>
         <tr>
-            <th><%= post.id %></th>
+            <th>
+                <%= post.id %>
+            </th>
             <th>
                 <%= link_to post.title, post %>
             </th>
             <th>
                 <%= post.body %>
             </th>
-            <% if current_user == @user %>
-                <th>
-                    <%= post.draft %>
-                </th>
-            <% end %>
+            <th>
+                <%= post.published_at %>
+            </th>
             <th>
                 <%= post.tag_list %>   
             </th>
         </tr>
-        <% end %>
     <% end %>
 </table>
-</div>

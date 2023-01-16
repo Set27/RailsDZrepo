@@ -2,10 +2,9 @@
 <h2>
     <%= @post.title %>
 </h2>
-    <% if current_user == @post.user %>
-        <% if @post.draft %>
-            <%= link_to "publish", publish_post_path(@post), data: {"turbo-method": :post}, class: "btn btn-primary mt-1" %>
-        <% end %>
+ <%# allowed_to?(:publish?, @post) %>
+    <% if current_user == @post.user && @post.published_at == nil %> 
+        <%= link_to "publish", publish_post_path(@post), data: {"turbo-method": :post}, class: "btn btn-primary mt-1" %>
     <% end %>
 </div>
 <br> <%= @post.body %>

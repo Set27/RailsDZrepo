@@ -11,8 +11,9 @@ gem 'acts-as-taggable-on', '~> 9.0'
 gem 'devise'
 gem "devise-i18n"
 gem "devise-bootstrap5"
-# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
+gem 'action_policy', '~> 0.6.3'
+# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 
 # Use pg as the database for Active Record
 gem "pg"
